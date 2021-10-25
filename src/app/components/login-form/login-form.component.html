@@ -1,0 +1,38 @@
+<form (ngSubmit)="handleSubmit()">
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Digite seu email"
+      autocomplete="off"
+      [(ngModel)]="email"
+    />
+  </div>
+
+  <div>
+    <label for="password">Senha</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Digite sua senha"
+      [(ngModel)]="password"
+    />
+  </div>
+
+  <app-submit-button
+    buttonRole="login"
+    text="Faça o Login"
+    [email]="email"
+    [password]="password"
+  ></app-submit-button>
+
+  <div>
+    <p>Não possui cadastro?</p>
+    <button routerLink="/register">Cadastre-se</button>
+  </div>
+
+</form>
