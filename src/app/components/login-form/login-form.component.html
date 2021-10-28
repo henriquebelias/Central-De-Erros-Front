@@ -1,14 +1,13 @@
-<form (ngSubmit)="handleSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
   <div>
     <label for="email">Email</label>
     <input
       type="email"
-      name="email"
       id="email"
       placeholder="Digite seu email"
       autocomplete="off"
-      [(ngModel)]="email"
+      formControlName="email"
     />
   </div>
 
@@ -16,23 +15,33 @@
     <label for="password">Senha</label>
     <input
       type="password"
-      name="password"
       id="password"
       placeholder="Digite sua senha"
-      [(ngModel)]="password"
+      autocomplete="off"
+      formControlName="password"
     />
   </div>
 
-  <app-submit-button
-    buttonRole="login"
-    text="Faça o Login"
-    [email]="email"
-    [password]="password"
-  ></app-submit-button>
-
   <div>
-    <p>Não possui cadastro?</p>
-    <button routerLink="/register">Cadastre-se</button>
+    <button
+      type="submit"
+      [disabled]="!loginForm.valid"
+    >
+      Faça o Login
+    </button>
   </div>
 
 </form>
+
+<div>
+  <p>Não possui cadastro?</p>
+  <button routerLink="/register">Cadastre-se</button>
+</div>
+
+<div>
+  <button (click)="getUsers()">Buscar Usuários</button>
+</div>
+
+<ul *ngIf="users">
+  <li *ngFor="let user of users">{{ user.name }}</li>
+</ul>

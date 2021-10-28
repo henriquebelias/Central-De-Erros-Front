@@ -1,14 +1,13 @@
-<form (ngSubmit)="onSubmit()">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
   <div>
     <label for="name">Nome</label>
     <input
       type="name"
-      name="name"
       id="name"
       placeholder="Digite seu name"
       autocomplete="off"
-      [(ngModel)]="name"
+      formControlName="name"
     />
   </div>
 
@@ -16,11 +15,10 @@
     <label for="email">Email</label>
     <input
       type="email"
-      name="email"
       id="email"
       placeholder="Digite seu email"
       autocomplete="off"
-      [(ngModel)]="email"
+      formControlName="email"
     />
   </div>
 
@@ -28,21 +26,24 @@
     <label for="password">Senha</label>
     <input
       type="password"
-      name="password"
       id="password"
       placeholder="Digite sua senha"
-      [(ngModel)]="password"
+      autocomplete="off"
+      formControlName="password"
     />
   </div>
 
-  <app-submit-button
-    buttonRole="register"
-    text="Registre-se"
-    [name]="name"
-    [email]="email"
-    [password]="password"
-  ></app-submit-button>
+  <div>
+    <button
+      type="submit"
+      [disabled]="!registerForm.valid"
+    >
+      Cadastrar
+    </button>
+  </div>
 
   <button routerLink="/">Voltar pro início!</button>
+
+  <p *ngIf="successMessage">{{ successMessage }}</p>
 
 </form>

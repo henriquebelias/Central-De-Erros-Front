@@ -1,1 +1,19 @@
-<p>error-central works!</p>
+<!-- <button (click)="getErrors()">Recuperar Lista de Erros</button> -->
+
+<table>
+  <thead>
+    <tr>
+      <td>NÍVEL</td>
+      <td>DESCRIÇÃO</td>
+      <td>ORIGEM</td>
+    </tr>
+  </thead>
+  <tbody *ngIf="errors">
+    <tr *ngFor="let error of errors">
+      <td>{{ error.level }}</td>
+      <td>{{ error.description }}</td>
+      <td>{{ error.origin }}</td>
+      <button [routerLink]="['/error-central', error.id]">Ver Detalhes</button>
+    </tr>
+  </tbody>
+</table>
