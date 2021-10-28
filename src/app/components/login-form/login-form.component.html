@@ -25,16 +25,23 @@
   <div>
     <button
       type="submit"
-      routerLink="error-central"
       [disabled]="!loginForm.valid"
     >
       Faça o Login
     </button>
   </div>
 
-  <div>
-    <p>Não possui cadastro?</p>
-    <button routerLink="/register">Cadastre-se</button>
-  </div>
-
 </form>
+
+<div>
+  <p>Não possui cadastro?</p>
+  <button routerLink="/register">Cadastre-se</button>
+</div>
+
+<div>
+  <button (click)="getUsers()">Buscar Usuários</button>
+</div>
+
+<ul *ngIf="users">
+  <li *ngFor="let user of users">{{ user.name }}</li>
+</ul>

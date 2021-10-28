@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -26,14 +29,25 @@ export class LoginFormComponent implements OnInit {
     ],
   });
 
-  constructor(private fb: FormBuilder) {}
+  users?: User[];
+
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    console.log(this.loginForm.value);
-
+    this.userService.getToken(this.loginForm.value)
+      .subscribe(
+        (response: any) => {
+          sessionStorage.setItem('token', JSON.stringify(response['access_token']));
+          this.router.navigateByUrl('/error-central');
+        },
+        (error) => alert(error)
+      );
   }
 
+  getUsers(): void {
+    this.userService.getUsers().subscribe((userList) => this.users = userList);
+  }
 }

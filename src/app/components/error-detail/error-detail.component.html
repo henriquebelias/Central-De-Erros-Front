@@ -1,0 +1,9 @@
+<h3>Detalhes do erro</h3>
+
+<div *ngIf="error">
+  <p>Level: {{ error.level }}</p>
+  <p>Descrição: {{ error.description }}</p>
+  <p>Log: {{ error.log }}</p>
+  <p>Origem: {{ error.origin }}</p>
+  <p>Data de submissão: {{ error.createdAt | date:'dd/MM/yyyy' }}</p>
+</div>

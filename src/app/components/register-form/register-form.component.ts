@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register-form',
@@ -31,13 +32,14 @@ export class RegisterFormComponent implements OnInit {
 
   successMessage?: string;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    this.successMessage = 'Cadastro Efetuado!';
+  onSubmit(): void {
+    this.userService.registerUser(this.registerForm.value)
+      .subscribe((_value) => this.successMessage = 'Cadastro Efetuado!')
   }
 
 }

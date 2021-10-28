@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorLog } from 'src/app/models/ErrorLog';
+import { ErrorLogService } from 'src/app/services/error-log.service';
 
 @Component({
   selector: 'app-error-central',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorCentralComponent implements OnInit {
 
-  constructor() { }
+  errors?: ErrorLog[];
+
+  token: any;
+
+  constructor(private errorLogService: ErrorLogService) { }
 
   ngOnInit(): void {
+    this.token = JSON.parse(sessionStorage.getItem('token')!);
+    this.getErrors();
+  }
+
+  getErrors(): void {
+    this.errorLogService.getErrorLogs(this.token).subscribe((response) => this.errors = response)
   }
 
 }
