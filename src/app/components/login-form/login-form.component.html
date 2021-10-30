@@ -1,47 +1,51 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="center-item">
 
-  <div>
-    <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      placeholder="Digite seu email"
-      autocomplete="off"
-      formControlName="email"
-    />
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <img src="https://getvectorlogo.com/wp-content/uploads/2019/07/ciandt-vector-logo.png" />
+
+    <div>
+      <label for="email"></label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Digite seu email"
+        autocomplete="off"
+        formControlName="email"
+      />
+    </div>
+
+    <div>
+      <label for="password"></label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Digite sua senha"
+        autocomplete="off"
+        formControlName="password"
+      />
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </div>
+
+  </form>
+
+  <!-- <div>
+    <p>Não possui cadastro?</p>
+    <button routerLink="/register">Cadastre-se</button>
   </div>
 
   <div>
-    <label for="password">Senha</label>
-    <input
-      type="password"
-      id="password"
-      placeholder="Digite sua senha"
-      autocomplete="off"
-      formControlName="password"
-    />
+    <button (click)="getUsers()">Buscar Usuários</button>
   </div>
 
-  <div>
-    <button
-      type="submit"
-      [disabled]="!loginForm.valid"
-    >
-      Faça o Login
-    </button>
-  </div>
-
-</form>
-
-<div>
-  <p>Não possui cadastro?</p>
-  <button routerLink="/register">Cadastre-se</button>
+  <ul *ngIf="users">
+    <li *ngFor="let user of users">{{ user.name }}</li>
+  </ul> -->
 </div>
-
-<div>
-  <button (click)="getUsers()">Buscar Usuários</button>
-</div>
-
-<ul *ngIf="users">
-  <li *ngFor="let user of users">{{ user.name }}</li>
-</ul>
