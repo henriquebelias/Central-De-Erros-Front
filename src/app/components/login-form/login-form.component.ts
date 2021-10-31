@@ -46,8 +46,4 @@ export class LoginFormComponent implements OnInit {
         (error) => alert(error)
       );
   }
-
-  getUsers(): void {
-    this.userService.getUsers().subscribe((userList) => this.users = userList);
-  }
 }

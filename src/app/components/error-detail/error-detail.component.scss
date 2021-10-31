@@ -1,0 +1,41 @@
+$citRed: #ED1941;
+$btnTextColor: white;
+h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+    color: $citRed;
+    text-align: center;
+    padding: 20px;
+}
+
+.error-info {
+    border-top: 2px solid $citRed;
+    border-bottom: 2px solid $citRed;
+}
+
+p {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #F1F1F1;  
+}
+
+button {
+    background-color: $citRed;
+    color: $btnTextColor;
+    font-size: 12px;
+    width: 50%;
+    outline: none;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+
+    &:hover {
+      background-color:#BF0C2E;
+    }
+
+  }
