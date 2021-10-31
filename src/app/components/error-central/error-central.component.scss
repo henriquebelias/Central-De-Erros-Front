@@ -8,7 +8,10 @@ body {
 }
 
 .error-table {
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
+    border: 2px solid $citRed;
+
     caption {
         text-transform: uppercase;
         font-weight: bold;
@@ -18,8 +21,7 @@ body {
         padding: 20px;
     }
     thead {
-        border-top: 2px solid $citRed;
-        border-bottom: 2px solid $citRed;
+        border: 2px solid $citRed;
         th {
             text-transform: uppercase;
             text-align: center;
@@ -50,21 +52,18 @@ body {
         outline: none;
         border: none;
         padding: 10px;
-        margin-top: 10px;
-        margin-right: 10px;
-        margin-left: 10px;
+        margin: 10px;
         cursor: pointer;
         border-radius: 10px;
-  
+
         &:hover {
           background-color:#BF0C2E;
         }
-  
+
       }
     tfoot {
         color: $citRed;
         font-style: italic;
-        border-bottom: 2px solid $citRed;
         tr {
             td {
                 padding: 10px;
@@ -81,13 +80,13 @@ body {
       }
     }
   }
-  
+
   @media(max-width:452px) {
     .error-table {
       table {
         width: 70%;
         padding: 25px;
-  
+
         p {
           font-size: 14px;
         }

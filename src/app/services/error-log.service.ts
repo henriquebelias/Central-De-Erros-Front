@@ -8,7 +8,7 @@ import { ErrorLog } from '../models/ErrorLog';
 })
 export class ErrorLogService {
 
-  url = 'http://localhost:8080'
+  url = 'https://ancient-ridge-40479.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 
