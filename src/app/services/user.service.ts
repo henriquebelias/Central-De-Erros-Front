@@ -15,7 +15,7 @@ type UserTypes = {
 })
 export class UserService {
 
-  url = 'http://localhost:8080'
+  url = 'https://ancient-ridge-40479.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 
