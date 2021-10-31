@@ -1,0 +1,96 @@
+$background: #efefef;
+$lfs-blue: #006ac6;
+$citRed: #ED1941;
+$textcolor: black;
+$btnTextColor: white;
+body {
+    background-color: $background;
+}
+
+.error-table {
+    width: 100%;
+    caption {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: large;
+        color: $citRed;
+        text-align: center;
+        padding: 20px;
+    }
+    thead {
+        border-top: 2px solid $citRed;
+        border-bottom: 2px solid $citRed;
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px;
+            color: $lfs-blue;
+            border: 1px solid #F1F1F1;
+        }
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid #F1F1F1;
+            color: $textcolor;
+            td {
+                padding: 10px;
+                border: 1px solid #F1F1F1;
+            }
+            th {
+                padding-left: 10px;
+                border: 1px solid #F1F1F1;
+            }
+        }
+    }
+    button {
+        background-color: $citRed;
+        color: $btnTextColor;
+        font-size: 12px;
+        width: 70%;
+        outline: none;
+        border: none;
+        padding: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 10px;
+  
+        &:hover {
+          background-color:#BF0C2E;
+        }
+  
+      }
+    tfoot {
+        color: $citRed;
+        font-style: italic;
+        border-bottom: 2px solid $citRed;
+        tr {
+            td {
+                padding: 10px;
+                border: 1px solid #F1F1F1;
+            }
+        }
+    }
+}
+
+@media(max-width:692px) {
+    .error-table {
+      table {
+        width: 60%;
+      }
+    }
+  }
+  
+  @media(max-width:452px) {
+    .error-table {
+      table {
+        width: 70%;
+        padding: 25px;
+  
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
