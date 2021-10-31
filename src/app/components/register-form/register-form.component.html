@@ -1,49 +1,51 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="center-item">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <img src="https://getvectorlogo.com/wp-content/uploads/2019/07/ciandt-vector-logo.png" />
+    <div>
+      <label for="name"></label>
+      <input
+        type="name"
+        id="name"
+        placeholder="Digite seu nome"
+        autocomplete="off"
+        formControlName="name"
+      />
+    </div>
 
-  <div>
-    <label for="name">Nome</label>
-    <input
-      type="name"
-      id="name"
-      placeholder="Digite seu name"
-      autocomplete="off"
-      formControlName="name"
-    />
-  </div>
+    <div>
+      <label for="email"></label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Digite seu email"
+        autocomplete="off"
+        formControlName="email"
+      />
+    </div>
 
-  <div>
-    <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      placeholder="Digite seu email"
-      autocomplete="off"
-      formControlName="email"
-    />
-  </div>
+    <div>
+      <label for="password"></label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Digite sua senha"
+        autocomplete="off"
+        formControlName="password"
+      />
+    </div>
 
-  <div>
-    <label for="password">Senha</label>
-    <input
-      type="password"
-      id="password"
-      placeholder="Digite sua senha"
-      autocomplete="off"
-      formControlName="password"
-    />
-  </div>
+    <div>
+      <button
+        type="submit"
+        [disabled]="!registerForm.valid"
+      >
+        Cadastrar
+      </button>
+    </div>
 
-  <div>
-    <button
-      type="submit"
-      [disabled]="!registerForm.valid"
-    >
-      Cadastrar
-    </button>
-  </div>
+    <button routerLink="/error-central">Voltar pro início!</button>
 
-  <button routerLink="/">Voltar pro início!</button>
+    <p *ngIf="successMessage">{{ successMessage }}</p>
 
-  <p *ngIf="successMessage">{{ successMessage }}</p>
-
-</form>
+  </form>
+</div>
